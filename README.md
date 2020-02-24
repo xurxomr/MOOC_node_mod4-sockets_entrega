@@ -63,7 +63,7 @@ $ npm start     ##  or 'node main'
 
 ## Tareas
 
-El alumno debe modificar el proyecto proporcionado para convertirlo en un servidor que atienda peticiones TCP en el puerto **8080**. Con la nueva versión, para utilizar el programa deberá arrancarse un cliente telnet conectado a la dirección y puerto del servidor. Usando dicho cliente deberán poderse ejecutar los mismos comandos que anteriormente y su comportamiento será idéntico, recibiendo los resultados de su ejecución también en el cliente. Además se exige el requisito de que puedan conectarse varios clientes y utilizar el progrmaa de manera simultánea.
+El alumno debe modificar el proyecto proporcionado para convertirlo en un servidor que atienda peticiones TCP en el puerto **8080**. Con la nueva versión, para utilizar el programa deberá arrancarse un cliente telnet conectado a la dirección y puerto del servidor. Usando dicho cliente deberán poderse ejecutar los mismos comandos que anteriormente y su comportamiento será idéntico, recibiendo los resultados de su ejecución también en el cliente. Además se exige el requisito de que puedan conectarse varios clientes y utilizar el programa de manera simultánea.
 
 En resumen las tareas a realizar son las siguientes: 
 
@@ -75,6 +75,8 @@ Una vez desarrolladas estas tareas, el comportamiento esperado es el siguiente:
 
 - Al arrancar el programa con la orden ``npm start`` (o ``node main``) éste debe quedarse esperando recibir conexiones en el puerto ``8080``.
 - Arrancando en otro terminal el programa *telnet* con la orden ``telnet localhost 8080`` (o ``telnet 127.0.0.1 8080``) nos conectaremos al servidor y podremos ejecutar los comandos disponibles.
+- Varios clientes deben poder conectarse y utilizar el programa de manera simultánea.
+- Al cerrar la conexión de un cliente, el servidor debe seguir arrancado esperando nuevas conexiones.
 
 **¡¡Nota importante!!**: Si durante el desarrollo de la práctica crees que has podido "romper" la base de datos o crear alguna inconsistencia siempre puedes reiniciar su estado incial eliminando el fichero ``db.sqlite`` y ejecutando de nuevo los comandos ``npm run migrate`` y ``npm run seed``
 
@@ -115,8 +117,9 @@ La herramienta de autocorrección preguntará por el correo del alumno y el toke
 
 **RÚBRICA**: Se puntuará el ejercicio a corregir sumando el % indicado a la nota total si la parte indicada es correcta:
 
--  **40%:** 
--  **60%:** 
-
+-  **25%:** El servidor atiende conexiones en el puerto 8080
+-  **25%:** El servidor ejecuta las acciones de manera remota
+-  **25%:** El servidor admite varias conexiones simultáneas
+-  **25%:** El servidor cierra correctamente las conexiones
 
 Si pasa todos los tests se dará la máxima puntuación.

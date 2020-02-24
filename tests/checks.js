@@ -158,7 +158,7 @@ describe("(Checks) Entrega6_sockets", function () {
     });
 
     it(`1: Comprobando que el servidor en ${host} atiende conexiones en el puerto ${port}...`, async function () {
-        this.score = 0.5;
+        this.score = 2.5;
         if (error_critical) {
             this.msg_err = error_critical;
             should.not.exist(error_critical);
@@ -193,7 +193,6 @@ describe("(Checks) Entrega6_sockets", function () {
             });
             
             telnet.connect(port, host, function () {
-                console.log('EIEIIEIIE');
             });
 
             await timeout(T_WAIT * 1000);
@@ -208,8 +207,227 @@ describe("(Checks) Entrega6_sockets", function () {
             this.msg_err += '. ' + error;
             error.should.be.equal("");
           
+        }
+    });
+
+    it(`2: Comprobando que el servidor ejecuta las acciones de manera remota...`, async function () {
+        this.score = 2.5;
+        if (error_critical) {
+            this.msg_err = error_critical;
+            should.not.exist(error_critical);
+        } else {
+            this.msg_ok = "El servidor ejecuta las acciones de manera remota";
+            this.msg_err = "El servidor no ejecuta las acciones de manera remota";
+
+
+            let error = "";
+
+            client = spawn("node", ["main.js"], {cwd: path_assignment});
+            client.on('error', function (data) {
+                error += data;
+            });
+            await timeout(T_WAIT * 1000); //wait for client to start
+            if (error) {
+                this.msg_err = `Error arrancando el servidor: ${error}`;
+                error.should.have.lengthOf(0);
+            }
+            let output = "";
+            let telnet = null;
+
+            telnet = new net.Socket();
+            
+            telnet.on('error', function (data) {
+                this.msg_err += 'Error conectando el cliente';
+                error += data;
+            });
+
+            telnet.on('data', function (data) {
+                output += data;
+            });
+            
+            telnet.connect(port, host, function () {
+                telnet.write("u\n");
+            });
+
+            await timeout(T_WAIT * 1000);
+
+            if (telnet) {
+                telnet.destroy();
+            }
+            if (client) {
+                client.kill();
+            }
+
+            this.msg_err += '. ' + error;
+            error.should.be.equal("");
+
+            Utils.search('years old', output).should.be.equal(true);
+          
             Utils.search('UNSUPPORTED COMMAND', output).should.be.equal(false);
             Utils.search('TypeError', output).should.be.equal(false);
+
+        }
+    });
+
+    it(`3: Comprobando que el servidor admite varias conexiones simultáneas...`, async function () {
+        this.score = 2.5;
+        if (error_critical) {
+            this.msg_err = error_critical;
+            should.not.exist(error_critical);
+        } else {
+            this.msg_ok = "El servidor admite varias conexiones simultáneas";
+            this.msg_err = "El servidor no admite varias conexiones simultáneas";
+
+
+            let error = "";
+
+            client = spawn("node", ["main.js"], {cwd: path_assignment});
+            client.on('error', function (data) {
+                error += data;
+            });
+            await timeout(T_WAIT * 1000); //wait for client to start
+            if (error) {
+                this.msg_err = `Error arrancando el servidor: ${error}`;
+                error.should.have.lengthOf(0);
+            }
+            let output1 = "";
+            let output2 = "";
+            let telnet1 = null;
+            let telnet2 = null;
+
+            telnet1 = new net.Socket();
+            
+            telnet1.on('error', function (data) {
+                this.msg_err += 'Error conectando el cliente 1';
+                error += data;
+            });
+
+            telnet1.on('data', function (data) {
+                output1 += data;
+            });
+            
+            telnet1.connect(port, host, function () {
+                telnet1.write("u\n");
+            });
+
+            await timeout(T_WAIT * 1000);
+
+            telnet2 = new net.Socket();
+            
+            telnet2.on('error', function (data) {
+                this.msg_err += 'Error conectando el cliente 2';
+                error += data;
+            });
+
+            telnet2.on('data', function (data) {
+                output2 += data;
+            });
+            
+            telnet2.connect(port, host, function () {
+                telnet2.write("u\n");
+            });
+
+            await timeout(T_WAIT * 1000);
+            
+            if (telnet1) {
+                telnet1.destroy();
+            }
+            if (telnet2) {
+                telnet2.destroy();
+            }
+            if (client) {
+                client.kill();
+            }
+
+            this.msg_err += '. ' + error;
+            error.should.be.equal("");
+
+            Utils.search('years old', output1).should.be.equal(true);
+            Utils.search('years old', output2).should.be.equal(true);
+
+        }
+    });
+
+    it(`4: Comprobando que el servidor cierra correctamente las conexiones...`, async function () {
+        this.score = 2.5;
+        if (error_critical) {
+            this.msg_err = error_critical;
+            should.not.exist(error_critical);
+        } else {
+            this.msg_ok = "El servidor cierra correctamente las conexiones";
+            this.msg_err = "El servidor no cierra correctamente las conexiones";
+
+
+            let error = "";
+
+            client = spawn("node", ["main.js"], {cwd: path_assignment});
+            client.on('error', function (data) {
+                error += data;
+            });
+            await timeout(T_WAIT * 1000); //wait for client to start
+            if (error) {
+                this.msg_err = `Error arrancando el servidor: ${error}`;
+                error.should.have.lengthOf(0);
+            }
+            let output1 = "";
+            let telnet1 = null;
+            let output2 = "";
+            let telnet2 = null;
+
+            telnet1 = new net.Socket();
+            
+            telnet1.on('error', function (data) {
+                this.msg_err += 'Error conectando el cliente';
+                error += data;
+            });
+
+            telnet1.on('data', function (data) {
+                output1 += data;
+            });
+            
+            telnet1.connect(port, host, function () {
+                telnet1.write("e\n");
+            });
+
+            await timeout(T_WAIT * 1000);
+
+
+            telnet2 = new net.Socket();
+            
+            telnet2.on('error', function (data) {
+                this.msg_err += 'Error conectando el cliente';
+                error += data;
+            });
+
+            telnet2.on('data', function (data) {
+                output2 += data;
+            });
+            
+            telnet2.connect(port, host, function () {
+                telnet2.write("u\n");
+            });
+
+            await timeout(T_WAIT * 1000);
+
+
+            if (telnet1) {
+                telnet1.destroy();
+            }
+
+            if (telnet2) {
+                telnet2.destroy();
+            }
+            if (client) {
+                client.kill();
+            }
+
+            if (error !== "") 
+                this.msg_err += '. Sigue el servidor arrancado tras cerrar una conexión?';
+            
+            error.should.be.equal("");
+            Utils.search('years old', output2).should.be.equal(true);
+            Utils.search('UNSUPPORTED COMMAND', output2).should.be.equal(false);
+            Utils.search('TypeError', output2).should.be.equal(false);
 
         }
     });

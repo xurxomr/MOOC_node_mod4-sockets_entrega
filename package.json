@@ -1,14 +1,14 @@
 {
-    "name": "Entrega5_BBDD",
+    "name": "Entrega6_sockets",
     "author": "CORE-2020",
-    "description": "CORE_Entrega5_BBDD",
+    "description": "CORE_Entrega6_sockets",
     "license": "GNU",
     "version": "0.0.0",
     "info": {
-        "githubURL": "CORE-2020/Entrega5_BBDD",
+        "githubURL": "CORE-2020/Entrega6_sockets",
         "serverUrl": "https://autocorector.dit.upm.es/",
         "courseId": "8249",
-        "assignmentId": "77288"
+        "assignmentId": "77479"
     },
     "scripts": {
         "migrate": "sequelize db:migrate --url sqlite://$(pwd)/db.sqlite",
