@@ -71,6 +71,8 @@ En resumen las tareas a realizar son las siguientes:
 - Modificar el programa para que en vez de leer las órdenes en la linea de comandos (``stdin``) lo haga en la entrada del socket.
 - Modificar el programa para que en vez de escribir los resultados de la ejecución de las órdenes en la salida estándar (``stdout``) lo haga en la salida del socket.
 
+* Nota: se debe seguir utilizando el módulo ``readline``.
+
 Una vez desarrolladas estas tareas, el comportamiento esperado es el siguiente: 
 
 - Al arrancar el programa con la orden ``npm start`` (o ``node main``) éste debe quedarse esperando recibir conexiones en el puerto ``8080``.
