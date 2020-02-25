@@ -6,7 +6,7 @@
 
 # Entrega6_sockets
 
-Versión: 21 de Febrero de 2020
+Versión: 25 de Febrero de 2020
 
 ## Objetivos
  * Afianzar los conocimientos obtenidos sobre el desarrollo de aplicaciones cliente-servidor utilizando sockets TCP.
@@ -19,7 +19,7 @@ Esta práctica consiste en la modificación del proyecto de gestión de usuarios
 
 ## Descargar el código del proyecto
 
-Es necesario utilizar la versión 12 de Node.js para el desarrollo de esta práctica. El proyecto debe clonarse en el ordenador desde el que se está trabajando: 
+Es necesario utilizar la **versión 12 de Node.js** para el desarrollo de esta práctica. El proyecto debe clonarse en el ordenador desde el que se está trabajando: 
 
 ```
 $ git clone https://github.com/CORE-2020/Entrega6_sockets
@@ -31,9 +31,9 @@ $ cd Entrega6_sockets
 $
 $ npm install
 $
-$ npm run migrate
+$ npm run migrate   ## En Windows: npx sequelize db:migrate --url sqlite://$(pwd -W)/db.sqlite
 $
-$ npm run seed
+$ npm run seed      ## En Windows: npx sequelize db:seed:all --url sqlite://$(pwd -W)/db.sqlite
 $
 $ npm start     ##  or 'node main'
 ....

@@ -422,7 +422,7 @@ describe("(Checks) Entrega6_sockets", function () {
             }
 
             if (error !== "") 
-                this.msg_err += '. Sigue el servidor arrancado tras cerrar una conexión?';
+                this.msg_err += '. ¿Estás seguro de que sigue el servidor arrancado tras cerrar una conexión?';
             
             error.should.be.equal("");
             Utils.search('years old', output2).should.be.equal(true);
