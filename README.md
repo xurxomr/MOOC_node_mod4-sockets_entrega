@@ -63,7 +63,7 @@ $ npm start     ##  or 'node main'
 
 ## Tareas
 
-El alumno debe modificar el proyecto proporcionado para convertirlo en un servidor que atienda peticiones TCP en el puerto **8080**. Con la nueva versión, para utilizar el programa deberá arrancarse un cliente telnet conectado a la dirección y puerto del servidor. Usando dicho cliente deberán poderse ejecutar los mismos comandos que anteriormente y su comportamiento será idéntico, recibiendo los resultados de su ejecución también en el cliente. Además se exige el requisito de que puedan conectarse varios clientes y utilizar el programa de manera simultánea.
+El alumno debe modificar el proyecto proporcionado para convertirlo en un servidor que atienda peticiones TCP en el puerto **8080**. Con la nueva versión, para utilizar el programa deberá arrancarse un cliente *telnet* (o *netcat*) conectado a la dirección y puerto del servidor. Usando dicho cliente deberán poderse ejecutar los mismos comandos que anteriormente y su comportamiento será idéntico, recibiendo los resultados de su ejecución también en el cliente. Además se exige el requisito de que puedan conectarse varios clientes y utilizar el programa de manera simultánea.
 
 En resumen las tareas a realizar son las siguientes: 
 
@@ -80,7 +80,11 @@ Una vez desarrolladas estas tareas, el comportamiento esperado es el siguiente:
 - Varios clientes deben poder conectarse y utilizar el programa de manera simultánea.
 - Al cerrar la conexión de un cliente, el servidor debe seguir arrancado esperando nuevas conexiones.
 
-**¡¡Nota importante!!**: Si durante el desarrollo de la práctica crees que has podido "romper" la base de datos o crear alguna inconsistencia siempre puedes reiniciar su estado incial eliminando el fichero ``db.sqlite`` y ejecutando de nuevo los comandos ``npm run migrate`` y ``npm run seed``
+**Nota**: El programa *telnet* no viene activado por defecto en Windows. Para activarlo deben seguirse los pasos indicados [aquí]](https://www.technipages.com/windows-10-enable-telnet)
+
+**Nota 1**: Alternativamente puede utilizarse el programa *netcat* en lugar de *telnet*. En ese caso para conectarse al servidor se usará la orden ``netcat localhost 8080`` (o ``netcat 127.0.0.1 8080``).
+
+**Nota 2**: Si durante el desarrollo de la práctica crees que has podido "romper" la base de datos o crear alguna inconsistencia siempre puedes reiniciar su estado incial eliminando el fichero ``db.sqlite`` y ejecutando de nuevo los comandos ``npm run migrate`` y ``npm run seed``
 
 ## Prueba de la práctica 
 
