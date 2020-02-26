@@ -80,7 +80,7 @@ Una vez desarrolladas estas tareas, el comportamiento esperado es el siguiente:
 - Varios clientes deben poder conectarse y utilizar el programa de manera simultánea.
 - Al cerrar la conexión de un cliente, el servidor debe seguir arrancado esperando nuevas conexiones.
 
-**Nota**: El programa *telnet* no viene activado por defecto en Windows. Para activarlo deben seguirse los pasos indicados [aquí]](https://www.technipages.com/windows-10-enable-telnet)
+**Nota**: El programa *telnet* no viene activado por defecto en Windows. Para activarlo deben seguirse los pasos indicados [aquí](https://www.technipages.com/windows-10-enable-telnet)
 
 **Nota 1**: Alternativamente puede utilizarse el programa *netcat* en lugar de *telnet*. En ese caso para conectarse al servidor se usará la orden ``netcat localhost 8080`` (o ``netcat 127.0.0.1 8080``).
 
