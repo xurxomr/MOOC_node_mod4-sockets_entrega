@@ -6,7 +6,7 @@
 
 # Entrega6_sockets
 
-Versión: 25 de Febrero de 2020
+Versión: 28 de Febrero de 2020
 
 ## Objetivos
  * Afianzar los conocimientos obtenidos sobre el desarrollo de aplicaciones cliente-servidor utilizando sockets TCP.
@@ -31,9 +31,9 @@ $ cd Entrega6_sockets
 $
 $ npm install
 $
-$ npm run migrate   ## En Windows: npx sequelize db:migrate --url sqlite://$(pwd -W)/db.sqlite
+$ npm run migrate   ## En Windows: npm run migrate_win
 $
-$ npm run seed      ## En Windows: npx sequelize db:seed:all --url sqlite://$(pwd -W)/db.sqlite
+$ npm run seed      ## En Windows: npm run seed_win
 $
 $ npm start     ##  or 'node main'
 ....
