@@ -9,10 +9,10 @@ const rl = readline.createInterface({
   output: process.stdout,
   prompt: "> "
 });
-rl.log = (msg) => console.log(msg);       // Add to rl interface
-rl.questionSync = async (rl, string) => { // Add to rl interface
+rl.log = (msg) => console.log(msg);  // Add log to rl interface
+rl.questionP = function (string) {   // Add questionP to rl interface
   return new Promise ( (resolve) => {
-    rl.question(`  ${string}: `, (answer) => resolve(answer.trim()))
+    this.question(`  ${string}: `, (answer) => resolve(answer.trim()))
   })
 };
 
