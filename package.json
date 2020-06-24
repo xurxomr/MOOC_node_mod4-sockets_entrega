@@ -1,15 +1,16 @@
 {
-    "name": "Entrega6_sockets",
-    "author": "CORE-2020",
-    "description": "CORE_Entrega6_sockets",
+    "name": "MOOC_node_mod4-sockets_entrega",
+    "author": "ging-moocs",
     "license": "GNU",
     "version": "0.0.0",
-    "engines": { "node": "12.16" },
     "info": {
-        "githubURL": "CORE-2020/Entrega6_sockets",
+        "githubURL": "ging-moocs/MOOC_node_mod4-sockets_entrega",
         "serverUrl": "https://autocorector.dit.upm.es/",
-        "courseId": "8249",
-        "assignmentId": "77479"
+        "courseId": "2",
+        "assignmentId": "10"
+    },
+    "engines": {
+        "node": "12.16"
     },
     "scripts": {
         "migrate": "sequelize db:migrate --url sqlite://$(pwd)/db.sqlite",
