@@ -3,7 +3,6 @@
 
 <br/><br/><br/>
 
-# Entrega6_sockets
 # Módulo 4: Nivel de transporte, interfaz de sockets y ejemplos de aplicaciones cliente servidor - Entrega P2P: Sockets
 
 Versión: 24 de junio de 2020
