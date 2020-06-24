@@ -15,7 +15,7 @@ const T_TEST = 2 * 60; // Time between tests (seconds)
 let error_critical = null;
 
 //TESTS
-describe("(Prechecks) Entrega6_sockets_Dependencias", function () {
+describe("(Prechecks): Comprobando Dependencias", function () {
 
     this.timeout(T_TEST * 1000);
 
@@ -32,7 +32,7 @@ describe("(Prechecks) Entrega6_sockets_Dependencias", function () {
 
 });
 
-describe("(Prechecks) Entrega6_sockets_Modelos", function () {
+describe("(Prechecks): Comprobaciones del modelo", function () {
 
     this.timeout(T_TEST * 1000);
 
@@ -108,7 +108,7 @@ describe("(Prechecks) Entrega6_sockets_Modelos", function () {
     });
 });
 
-describe("(Checks) Entrega6_sockets", function () {
+describe("(Checks) Pruebas funcionales", function () {
 
     const spawn = require("child_process").spawn;
     const timeout = ms => new Promise(res => setTimeout(res, ms));
