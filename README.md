@@ -106,3 +106,10 @@ $ npx moocauto                 ## Pasa los tests al fichero a entregar
 ```
 
 Se puede pasar la herramienta de autocorrección tantas veces como se desee.
+
+**RÚBRICA:** Se puntuará el ejercicio a corregir sumando el % indicado a la nota total si la parte indicada es correcta:
+
+* **25%:** El servidor atiende conexiones en el puerto 8080
+* **25%:** El servidor ejecuta las acciones de manera remota
+* **25%:** El servidor admite varias conexiones simultáneas
+* **25%:** El servidor cierra correctamente las conexiones
