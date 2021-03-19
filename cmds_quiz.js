@@ -12,7 +12,7 @@ exports.list = async (rl) =>  {
     }
   );
   quizzes.forEach( 
-    q => rl.log(`  "${q.question}" (by ${q.author.name}, id=${q.id})`)
+    q => rl.log(`  "${q.question}" (by ${q.author.name}, id=${q.id})\n`)
   );
 }
 

@@ -22,7 +22,8 @@ exports.help = (rl) =>
     > cf | fc        ## favourite: create
     > df | fd        ## favourite: delete
     >
-    > e              ## exit & return to shell`
+    > e              ## exit & return to shell
+    `
   )
 
 // Show all users in DB
@@ -30,7 +31,7 @@ exports.list = async (rl) => {
 
   let users = await User.findAll();
   
-  users.forEach( u => rl.log(`  ${u.name} is ${u.age} years old`));
+  users.forEach( u => rl.log(`  ${u.name} is ${u.age} years old\n`));
 }
 
 // Create user with age in the DB

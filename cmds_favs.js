@@ -10,7 +10,7 @@ exports.list = async (rl) => {
   users.forEach(u => {
     if (u.fav.length !== 0) {
       u.fav.forEach(q =>
-          rl.log(`  Quiz ${q.id} (${q.question}) favourite of ${u.name}`)
+          rl.log(`  Quiz ${q.id} (${q.question}) favourite of ${u.name}\n`)
       )
     }
   });
